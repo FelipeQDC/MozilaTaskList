@@ -1,0 +1,47 @@
+.Users {
+    padding: .5rem 0 .75rem 0;
+    text-align: left;
+    font-size: 1.2rem;
+   }
+   
+   .btn-wrapper {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+   }
+   .btn {
+    /* menu buttons flexbox styles */
+    flex-basis: 49%;
+   }
+   .btn-save {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+   }
+   .btn-save:hover {
+    background-color: #444242;
+   }
+   .btn-save:focus {
+    background-color: #fff;
+    color: #000;
+   }
+   .btn-warn {
+    background-color: #b90000;
+    color: #fff;
+    border-color: #9a0000;
+   }
+   .btn-warn:hover {
+    background-color: #9a0000;
+   }
+   .btn-warn:active {
+    background-color: #e30000;
+    border-color: #000;
+   }
+   .sm-text-input {
+    width: 100%;
+    padding: .5rem;
+    border: 2px solid #555;
+    display: block;
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin: 1rem 0;
+   }

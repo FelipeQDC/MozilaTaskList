@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -10,18 +10,44 @@
 
 <body>
   <div class="main">
-    <h1>Felipe 216949 - Richard 215103</h1>
-    <input class="lg-text-input" (keyup.enter)="CREATE_tarefa(campoNovoItem.value)"
-      (keyup.enter)="campoNovoItem.value=''" #campoNovoItem />
-    <button class="btn-primary" (click)="CREATE_tarefa(campoNovoItem.value)" (click)="campoNovoItem.value=''">
-      Adicionar Tarefa</button>
-    <ul>
-      <li *ngFor="let tarefaDoLoop of arrayDeTarefas">
-        <app-item [tarefa]="tarefaDoLoop" (removeTarefa)="DELETE_tarefa(tarefaDoLoop)"
-          (modificaTarefa)="UPDATE_tarefa(tarefaDoLoop)"></app-item>
-      </li>
-    </ul>
+    <h1>Felipe 216949</h1>
+    <div *ngIf="usuarioLogado">
+   
+      <div *ngIf="!Editando">   
+        <button (click)="Editando=true" *ngIf="admin" class="btn-primary">Editar usuarios</button>
+<input class="lg-text-input" (keyup.enter)="CREATE_tarefa(campoNovoItem.value)"(keyup.enter)="campoNovoItem.value=''" #campoNovoItem />
+      <button class="btn-primary" (click)="CREATE_tarefa(campoNovoItem.value)" (click)="campoNovoItem.value=''">
+        Adicionar Tarefa</button>
+      <ul>
+        <li *ngFor="let tarefaDoLoop of arrayDeTarefas">
+          <app-item [tarefa]="tarefaDoLoop" (removeTarefa)="DELETE_tarefa(tarefaDoLoop)"
+            (modificaTarefa)="UPDATE_tarefa(tarefaDoLoop)"></app-item>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf ="admin && Editando">
+      <h2>oii ADM</h2>
+      <button (click)="Editando=false" class="btn-primary">Editar Tarefas</button>
+      <input class="lg-text-input" #NovoUsuario placeholder="Nome"/>
+      <BR>
+      <input class="lg-text-input" #NovaSenha placeholder="Senha"/>
+    <button class="btn-primary" (click)="CREATE_Users(NovoUsuario.value,NovaSenha.value); NovoUsuario.value=''; NovaSenha.value=''">Adicionar Usuario</button>
+      <ul>
+        <li *ngFor="let usersDoArray of arrayDeUsers">
+          <app-user [Users]="usersDoArray" (removeUser)="DELETE_Users(usersDoArray)" (modificaUser)="UPDATE_Users(usersDoArray)"></app-user>
+        </li>
+      </ul>
+    </div>
   </div>
+      <div *ngIf="!usuarioLogado">
+      <input #username placeholder="nome" class="lg-text-input" />
+      <BR>
+      <input #password placeholder="senha" class="lg-text-input" />
+      <button class="btn-primary" (click)="login(username.value, password.value)">Login</button>
+    </div>
+  </div>
+
 </body>
 
 </html>

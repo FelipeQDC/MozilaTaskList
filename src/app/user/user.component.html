@@ -1,0 +1,19 @@
+<div class="Users">
+    <label [for]="Users._id"><strong >Id</strong>: {{Users._id}}</label>
+    <BR>
+    <label [for]="Users.nome"><strong >Nome:</strong> {{Users.nome}}</label>
+    <BR>
+    <label [for]="Users.senha"><strong >Senha:</strong> ............</label>
+    <BR>
+    <label [for]="Users.admin"><strong >Admin:</strong> {{Users.admin}}</label>
+    <div *ngIf="!editando" class="btn-wrapper" >
+        <button class="btn" (click)="editando = true" >Editar</button>
+        <button class="btn btn-warn" (click)="removeUser.emit()">Remover</button>       
+</div>
+<div *ngIf="editando">
+    <h3>Nome:</h3><input class="sm-text-input"  #nomeNovo placeholder="Escreva o novo nome do Usuario aqui" [value]="Users.nome">
+    <h3>Senha:</h3><input class="sm-text-input" #senhaNova placeholder="Escreva a nova senha do Usuario">
+    <div class="btn-wrapper">
+    <button class="btn" (click)="editando = false">Cancelar</button>
+    <button class="btn btn-save" (click)="Users.nome=nomeNovo.value; Users.senha=senhaNova.value; editando = false; modificaUser.emit()" >Salvar</button>
+</div>
