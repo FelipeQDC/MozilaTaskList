@@ -23,10 +23,10 @@ arrayDeUsers: Users[] = [];
 Editando = false;
 
 constructor(private http: HttpClient) {
-  this.apiURL = 'http://localhost:3000';
+  this.apiURL = 'https://mozillatasklist-nodejs.onrender.com';
 this.READ_tarefas();
 }
-
+//http://localhost:3000
 CREATE_tarefa(descricaoNovaTarefa: string) {
   this.READ_tarefas();
   const idToken = new HttpHeaders().set("id-token", JSON.parse(this.tokenJWT).token);
