@@ -1,4 +1,4 @@
-To acess the site use this Login and password
+To access the site use this Login and password Login:usuario Password:123
 Login:usuario
 Password:123
 
